@@ -1,0 +1,1 @@
+java -jar spring-boot-demo-db.jar
