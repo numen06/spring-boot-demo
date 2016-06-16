@@ -1,9 +1,9 @@
 mqtt:
   broker:
     url: tcp://localhost:1883
-#   secure: true
-#   user: user
-#   password: pass
-#   cert: certificate.crt
   consumer:
     topic: messages/
+camel:
+  springboot:
+    typeConversion: false
+    xmlRoutes: classpath:camel-routes/**.xml
