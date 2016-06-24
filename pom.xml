@@ -15,5 +15,7 @@
 		<module>spring-boot-demo-session</module>
 		<module>spring-boot-demo-rest-session</module>
 		<module>spring-boot-demo-mqtt</module>
+		<module>spring-boot-demo-websocket</module>
+		<module>spring-boot-demo-jms</module>
 	</modules>
 </project>

@@ -1,9 +1,17 @@
 mqtt:
   broker:
-    url: tcp://localhost:1883
+    url: tcp://www.tdenergys.com:9772
+    username: admin
+    password: password
   consumer:
-    topic: messages/
+    clientId: test${random.int[1024,65536]}
+    topic: test/
+  provider:
+    clientId: test${random.int[1024,65536]}
+    topic: test/
 camel:
   springboot:
     typeConversion: false
     xmlRoutes: classpath:camel-routes/**.xml
+scheduled: 0/1 * * * * ?
+runtime: 10

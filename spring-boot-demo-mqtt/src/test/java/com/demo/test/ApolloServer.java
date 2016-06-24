@@ -1,5 +1,7 @@
 package com.demo.test;
 
+import javax.swing.plaf.synth.SynthSeparatorUI;
+
 import org.eclipse.paho.client.mqttv3.IMqttDeliveryToken;
 import org.eclipse.paho.client.mqttv3.MqttCallback;
 import org.eclipse.paho.client.mqttv3.MqttClient;
@@ -11,7 +13,7 @@ import org.eclipse.paho.client.mqttv3.MqttTopic;
 import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
 
 public class ApolloServer {
-	public static String HOST = "tcp://192.168.1.6:61613";
+	public static String HOST = "tcp://www.tdenergys.com:9772";
 
 	// private static String host = "tcp://192.168.36.102:61613";
 	private static String userName = "admin";
@@ -20,12 +22,12 @@ public class ApolloServer {
 	private static MqttTopic topic;
 	private static MqttMessage message;
 
-	private static String topicStr = "mqtt/topic";
+	private static String topicStr = "greetings";
 
 	public static void main(String[] args) throws MqttException {
 		// host为主机名，test为clientid即连接MQTT的客户端ID，一般以客户端唯一标识符表示，
 		// MemoryPersistence设置clientid的保存形式，默认为以内存保存
-		client = new MqttClient(ApolloServer.HOST, "CallbackServer", new MemoryPersistence());
+		client = new MqttClient(ApolloServer.HOST, "MqttClient1", new MemoryPersistence());
 		MqttConnectOptions options = new MqttConnectOptions();
 		// 设置是否清空session,这里如果设置为false表示服务器会保留客户端的连接记录，
 		// 这里设置为true表示每次连接到服务器都以新的身份连接
@@ -64,11 +66,13 @@ public class ApolloServer {
 		message.setQos(1);
 		message.setRetained(true);
 		System.out.println(message.isRetained() + "------ratained状态");
-		message.setPayload("mqtt.....test....".getBytes());
+		message.setPayload((System.currentTimeMillis() + "{\"content\":\"coshi tiancai\"}").getBytes());
 		client.connect(options);
 		client.subscribe(topicStr);
-		MqttDeliveryToken token = topic.publish(message);
-		token.waitForCompletion();
-		System.out.println(token.isComplete() + "========");
+		for (int i = 0; i < 100; i++) {
+			MqttDeliveryToken token = topic.publish(message);
+			token.waitForCompletion();
+			System.out.println(token.isComplete() + "========");
+		}
 	}
 }
