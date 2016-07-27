@@ -17,5 +17,6 @@
 		<module>spring-boot-demo-mqtt</module>
 		<module>spring-boot-demo-websocket</module>
 		<module>spring-boot-demo-jms</module>
+		<module>spring-boot-demo-docker</module>
 	</modules>
 </project>
