@@ -8,7 +8,7 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>1.3.3.RELEASE</version>
+		<version>1.4.0.RELEASE</version>
 	</parent>
 	<modules>
 		<module>spring-boot-demo-db</module>
@@ -18,5 +18,13 @@
 		<module>spring-boot-demo-websocket</module>
 		<module>spring-boot-demo-jms</module>
 		<module>spring-boot-demo-docker</module>
+		<module>spring-boot-demo-apollo</module>
 	</modules>
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
 </project>

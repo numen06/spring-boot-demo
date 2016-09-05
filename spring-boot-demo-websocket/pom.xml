@@ -25,25 +25,21 @@
 			<artifactId>spring-boot-starter-websocket</artifactId>
 		</dependency>
 		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-activemq</artifactId>
+		</dependency>
+		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-messaging</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>org.apache.activemq</groupId>
-			<artifactId>apollo-broker</artifactId>
-			<version>1.7.1</version>
+			<groupId>io.projectreactor</groupId>
+			<artifactId>reactor-net</artifactId>
 		</dependency>
-
 		<dependency>
-			<groupId>org.apache.activemq</groupId>
-			<artifactId>apollo-stomp</artifactId>
-			<version>1.7.1</version>
-		</dependency>
-
-		<dependency>
-			<groupId>org.apache.activemq</groupId>
-			<artifactId>apollo-jmx</artifactId>
-			<version>1.7.1</version>
+			<groupId>io.netty</groupId>
+			<artifactId>netty-all</artifactId>
+			<version>4.1.5.Final</version>
 		</dependency>
 	</dependencies>
 </project>

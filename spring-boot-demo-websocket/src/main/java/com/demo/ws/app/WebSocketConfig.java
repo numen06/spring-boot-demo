@@ -12,13 +12,14 @@ public class WebSocketConfig extends AbstractWebSocketMessageBrokerConfigurer {
 
 	@Override
 	public void configureMessageBroker(MessageBrokerRegistry config) {
-		config.enableSimpleBroker("/topic");
-		config.setApplicationDestinationPrefixes("/userInfo");
+		config.enableStompBrokerRelay("/topic", "/queue").setRelayHost("192.168.1.6").setRelayPort(61613).setSystemHeartbeatSendInterval(20000)
+			.setSystemHeartbeatReceiveInterval(20000).setSystemLogin("admin").setSystemPasscode("password").setClientLogin("admin").setClientPasscode("password");
+		config.setApplicationDestinationPrefixes("/app");
 	}
 
 	@Override
 	public void registerStompEndpoints(StompEndpointRegistry registry) {
-		registry.addEndpoint("/user").withSockJS();
+		registry.addEndpoint("/hello").withSockJS();
 	}
 
 }

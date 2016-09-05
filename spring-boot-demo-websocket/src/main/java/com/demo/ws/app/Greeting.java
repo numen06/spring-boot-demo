@@ -1,7 +1,13 @@
 package com.demo.ws.app;
 
-public class Greeting {
+import java.io.Serializable;
 
+public class Greeting implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private String content;
 
 	public Greeting(String content) {
