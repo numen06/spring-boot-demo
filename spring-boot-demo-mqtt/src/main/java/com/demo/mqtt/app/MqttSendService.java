@@ -8,9 +8,10 @@ import org.springframework.messaging.MessageDeliveryException;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
+import com.alibaba.fastjson.JSON;
 import com.demo.mqtt.app.MqttProvider.MessageGateway;
 
-//@Service
+@Service
 public class MqttSendService {
 	@Autowired
 	private MessageGateway gateway;
@@ -24,7 +25,7 @@ public class MqttSendService {
 			gateway.sendToMqtt(UUID.randomUUID().toString());
 			// Thread.sleep(1000);
 			for (int i = 0; i < runtime; i++) {
-				gateway.sendToMqtt(System.currentTimeMillis() + "天才张" + "[" + i + "]");
+				gateway.sendToMqtt(JSON.toJSONString(new Greeting(System.currentTimeMillis() + "天才张" + "[" + i + "]")));
 			}
 		} catch (MessageDeliveryException e) {
 			System.err.println("发送异常");

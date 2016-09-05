@@ -30,7 +30,7 @@ public class GreetingController {
 	@Autowired
 	private SimpMessagingTemplate simpMessagingTemplate;
 
-	@PostConstruct
+//	@PostConstruct
 	private void init() throws InterruptedException {
 		new AbstractExecutionThreadService() {
 			final SimpMessagingTemplate messagingTemplate = simpMessagingTemplate;
