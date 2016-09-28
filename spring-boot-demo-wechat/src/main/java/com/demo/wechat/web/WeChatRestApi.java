@@ -21,15 +21,13 @@ import com.demo.wechat.service.MyWechat;
 @RequestMapping("/wechat")
 public class WeChatRestApi {
 
-	private static Logger logger = Logger.getLogger(WeChatRest.class);
+	private static Logger logger = Logger.getLogger(WeChatRestApi.class);
 
 	@RequestMapping("")
 	public void wechat(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		MyWechat lejian = new MyWechat(request);
 		String result = lejian.execute();
 		response.getOutputStream().write(result.getBytes());
-		CustomerMsg customerMsg = new CustomerMsg("o9CFtv4fWkOBrpSzFs5zDQLx06-w");
-		customerMsg.sendText(lejian.getWechatRequest().getContent());
 	}
 
 	@RequestMapping("/auth2")
