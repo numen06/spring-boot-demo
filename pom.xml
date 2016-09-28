@@ -19,6 +19,7 @@
 		<module>spring-boot-demo-jms</module>
 		<module>spring-boot-demo-docker</module>
 		<module>spring-boot-demo-apollo</module>
+		<module>spring-boot-demo-wechat</module>
 	</modules>
 	<dependencies>
 		<dependency>
